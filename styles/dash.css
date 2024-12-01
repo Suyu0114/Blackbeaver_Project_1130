@@ -1,0 +1,184 @@
+@font-face {
+    font-family: Lato;
+    src: url(/fonts/Lato/Lato-Regular.ttf);
+}
+
+body {
+    font-family: Lato;
+    background-color: #f4f4f9;
+}
+
+header {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+header img {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+nav {
+    align-items: center;
+    width: 100%;
+    background-color: #2F4550;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 10px;
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav ul a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a.active {
+    color: #B8DBD9;
+}
+
+.overview {
+    padding: 3rem;
+    text-align: center;
+}
+
+.overview h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #F4F4F9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #2F4550;
+    width: 200px;
+    padding: 1.5rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.chart {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chart-placeholder {
+    background-color: #bdc3c7;
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+    color: #fff;
+    font-size: 18px;
+}
+
+/* Customer Table */
+.customer-table {
+    margin-bottom: 40px;
+}
+
+.customer-table h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.customer-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.customer-table table th, .customer-table table td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.customer-table table th {
+    background-color: #0080ff;
+    color: white;
+}
+
+/* Recent Notifications */
+.recent-notifications {
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+}
+
+.recent-notifications ul {
+    list-style: none;
+}
+
+.recent-notifications ul li {
+    background-color: #ecf0f1;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Task Management */
+.tasks {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    width: fit-content;
+    justify-content: space-between;
+}
+
+.tasks h3 {
+    padding: 10px;
+}
+
+.task-card {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 25px;
+}
+
+footer {
+    background-color: #2F4550;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    height: 70px;
+}
+
+footer p {
+    font-size: 20px;
+    padding:15px
+}

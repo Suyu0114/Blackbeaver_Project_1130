@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <link rel="stylesheet" href="/styles/normalize.css" type="text/css">
+        <link rel="stylesheet" href="/styles/dash.css" type="text/css">
+        <title>Dashboard</title>
+    </head>
+    <body>
+        <header>
+            <img src="images/logo.png" alt="BlackBeaver Logo">
+            <h1>BlackBeaver CRM</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="customers.html">Customers</a></li>
+                <li><a href="orders.html">Orders</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Tasks</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Log Out</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section class="overview">
+                <h2>Overview</h2>
+                <div class="dashboard">
+                    <div class="card">
+                        <h3>Total Customers</h3>
+                        <p>245</p>
+                    </div>
+                    <div class="card">
+                        <h3>Active Sales</h3>
+                        <p>$15,300</p>
+                    </div>
+                    <div class="card">
+                        <h3>Open Tickets</h3>
+                        <p>12</p>
+                    </div>
+                    <div class="card">
+                        <h3>Reports Generated</h3>
+                        <p>8</p>
+                    </div>
+                </div>
+
+                <div class="charts">
+                    <div class="chart">
+                        <h3>Customer Growth</h3>
+                        <div class="chart-placeholder">[Chart]</div>
+                    </div>
+                    <div class="chart">
+                        <h3>Activity Overview</h3>
+                        <div class="chart-placeholder">[Chart]</div>
+                    </div>
+                </div>
+
+                <div class="customer-table">
+                    <h3>Customer List</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>johndoe@gmail.com</td>
+                                <td>Active</td>
+                                <td><button>Edit</button> <button>Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>Jane Smith</td>
+                                <td>janesmith@gmail.com</td>
+                                <td>Inactive</td>
+                                <td><button>Edit</button> <button>Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="recent-notifications">
+                    <h3>Recent Notifications</h3>
+                    <ul>
+                        <li>Sales report pending</li>
+                        <li>Order #62533 outstanding.</li>
+                        <li>New lead from LinkedIn added.</li>
+                        <li>Support ticket #12456 resolved.</li>
+                    </ul>
+                </div>
+        
+                <div class="tasks">
+                    <h3>Tasks</h3>
+                    <div class="task-card">
+                        <h4>Follow-up with Customers</h4>
+                        <p>5 tasks remaining</p>
+                        <button>View Tasks</button>
+                    </div>
+                    <div class="task-card">
+                        <h4>Resolve Support Tickets</h4>
+                        <p>3 tickets pending</p>
+                        <button>View Tickets</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 BlackBeaver CRM. All rights reserved.</p>
+        </footer>
+    </body>
+</html>

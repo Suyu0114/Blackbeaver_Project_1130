@@ -1,0 +1,66 @@
+
+section.intro {
+    background-image:url(../images/back.jpg);
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat;
+    height: 800px;
+    margin-bottom: 0.5px;
+}
+
+h2 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    color: black;                     
+    font-size: 2em;                  
+    text-align: center;
+    font-weight: bold;
+}
+
+h3 {
+    margin: 0;
+    position: absolute;
+    top: 55%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    color: black;                     
+    font-size: 2em;                  
+    text-align: center;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    background-color: #D3D3D3;
+    color: #708090;
+    padding: 4rem 0;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: black;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: black;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 2rem;
+    border-radius: 8px;
+    background-color: #2F4550;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #586F7C;
+    color: #fff;
+}
+

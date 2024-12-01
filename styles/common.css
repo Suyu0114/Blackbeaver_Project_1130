@@ -1,0 +1,98 @@
+@font-face {
+    font-family: Lato;
+    src: url(/fonts/Lato/Lato-Regular.ttf);
+}
+
+body {
+    font-family: Lato;
+    background-color: #f4f4f9;
+}
+
+
+/* header */
+header {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+header h1 {
+    margin: 5px;
+}
+
+header img {
+    width: 65px;
+    height: 65px;
+    margin-right: 5px;
+    margin-left: 15%;
+}
+
+nav ul li a.active {
+    color: #B8DBD9;
+}
+
+nav ul li a:hover {
+    color: silver;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: #000000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+}
+
+.nav-left li {
+    margin: 0 20px;
+}
+
+ul.nav-left li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-right li {
+    margin-left: 1rem;
+}
+
+ul li a.access {
+    color: #000000;
+    background-color: white;
+    border: solid white;
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+
+ul li a.access:hover {
+    background-color: #000000;
+    color:white;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+
+/* footer */
+footer {
+    background-color: #2F4550;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    height: 70px;
+}
+
+footer p {
+    font-size: 20px;
+    padding:15px
+}
