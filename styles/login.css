@@ -2,54 +2,103 @@
 main {
     justify-content: center;
     align-items: center;
+    height: 500px;
     background-color: #f0f2f5;
     font-family: Arial, sans-serif;
+    padding: 20px;
 }
 
-.login-card {
-    background-color: #ffffff;
+
+.main-page {
+    max-width: 25%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     text-align: center;
 }
 
-.login-card h2 {
-    margin-bottom: 1rem;
-    font-size: 1.5em;
+.main-page h1 {
     color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
 }
-
-.login-card label {
-    display: block;
-    text-align: left;
-    font-weight: bold;
-    margin: 1rem 0 0.5rem;
+.main-page p {
     color: #555;
-}
-.login-card input[type="email"],
-.login-card input[type="text"],
-.login-card input[type="password"] {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1em;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
 }
 
-.login-card button {
+/* login-form-section */
+.login-form-section {
+    margin-bottom: 30px;
+}
+.login-form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.form-group label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+.form-group input,
+.form-group textarea {
     width: 100%;
-    padding: 0.75rem;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.login-form-section button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #ff6b6b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.login-form-section button:hover {
+    background-color: #e55b5b;
+}
+
+.form-section button {
+    width: 100%;
+    padding: 12px;
     border: none;
     border-radius: 4px;
     background-color: black;
     color: #fff;
-    font-size: 1em;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.login-card button:hover {
+.form-section  button:hover {
     background-color: #0056b3;
+}
+
+
+.form-section a {
+    display: block;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.form-section a:hover {
+    text-decoration: underline;
 }
 
