@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <link rel="stylesheet" href="/styles/normalize.css">
+        <link rel="stylesheet" href="/styles/common.css">
+        <link rel="stylesheet" href="/styles/dashboard.css">
+        <script src="/script/jquery-3.7.1.min.js"></script>
+        <script src="/script/chart.umd.js"></script>
+        <title>BlackBeaver CRM</title>
+    </head>
+    <body>
+        <header>
+            <img src="images/logo.png" alt="BlackBeaver Logo">
+            <h1>BlackBeaver CRM</h1>
+            <nav>
+                <ul class="nav-left">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">About Us</a></li> 
+                    <li><a href="#">Support</a></li>
+                </ul>
+                <ul class="nav-right">
+                    <li><a href="register.html" class="access">Register</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
+                <div class="block"><canvas id="myChart"></canvas></div>
+                <div class="block"><canvas id="PieChart"></canvas></div>
+                <div>ccc</div>
+                <div>ddd</div>
+            </div>
+            
+
+        </main>
+        <footer>
+            <p>&copy; 2024 BlackBeaver CRM. All rights reserved.</p>
+        </footer>
+
+
+        <script>
+            const ctx = document.getElementById('myChart');
+            const pie = document.getElementById('PieChart');
+            
+
+
+            const MONTHS = [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December'
+            ];
+
+            const labels = [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',];
+
+            const datas= [65, 59, 80, 81, 56, 55, 40];
+
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Sales Amount',
+                    data: datas,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(201, 203, 207, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)'
+                    ],
+                    borderWidth: 1
+                }]
+            };
+
+            // bar
+            let barChart = new Chart(ctx, {
+                type: 'bar',
+                data: data,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                },
+            });
+
+            // pie
+            let pieChart = new Chart(pie, {
+                    type: 'pie',
+                    data: data,
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Pie Chart'
+                            }
+                        }
+                    },
+                });
+                
+            $(document).ready(function () {
+                pieChart.resize(360, 360);
+            });
+
+        </script>
+        </body>
+</html>
