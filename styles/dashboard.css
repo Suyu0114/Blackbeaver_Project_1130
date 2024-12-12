@@ -3,13 +3,42 @@
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr; /* 兩欄 */
-    grid-template-rows: 1fr 1fr;   /* 兩行 */
-    width: 100vw;
-    height: 100vh;
+    grid-template-rows: repeat(4, 1fr); 
+    width: 100%;
+    /* height: 100vh; */
+    margin: 15px;
 }
 
 .block {
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 5px;
+    margin: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.block h4{
+    
+    margin:15px;
+    color: #666666;
+
+}
+
+.block h1{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 60%; 
+    margin: 0; 
+    text-align: center;
+    color: #666666;
+    font-size: 72px;
+}
+
+.peiChart{
     display: flex;
     justify-content: center;
     color: white;
 }
+
