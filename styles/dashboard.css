@@ -10,19 +10,21 @@
 }
 
 .block {
-    align-items: center;
+    display: flex;
+    flex-direction: column; /* 垂直排列子元素 */
+    align-items: stretch; /* 允许子元素根据各自的样式对齐 */
     font-size: 1.5rem;
     font-weight: bold;
+    /* height: 450px; */
     padding: 5px;
     margin: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .block h4{
-    
-    margin:15px;
+    margin:15px 0;
     color: #666666;
-
+    text-align: left;
 }
 
 .block h1{
@@ -37,8 +39,18 @@
 }
 
 .peiChart{
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
     color: white;
 }
 
+#PieChart{
+    width: 360px;
+    height: 360px;
+}
+
+
+.peiChart canvas {
+    align-self: center;
+}

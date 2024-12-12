@@ -1,161 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-        <link rel="stylesheet" href="/styles/normalize.css">
-        <link rel="stylesheet" href="/styles/common.css">
-        <link rel="stylesheet" href="/styles/dashboard.css">
-        <script src="/script/jquery-3.7.1.min.js"></script>
-        <script src="/script/chart.umd.js"></script>
-        <title>BlackBeaver CRM</title>
-    </head>
-    <body>
-        <header>
-            <img src="images/logo.png" alt="BlackBeaver Logo">
-            <h1>BlackBeaver CRM</h1>
-            <nav>
-                <ul class="nav-left">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">About Us</a></li> 
-                    <li><a href="#">Support</a></li>
-                </ul>
-                <ul class="nav-right">
-                    <li><a href="register.html" class="access">Register</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <div class="container">
-                <div class="block">
-                    <h4>Total Target</h4>
-                    <h1 style="text-align: center;">$500,000</h1>
-                </div>
-                <div class="block">
-                    <h4>Sales Amount</h4>
-                    <canvas id="myChart"></canvas>
-                </div>
-                <div class="block peiChart">
-                    <h4>Pie Chart</h4>
-                    <canvas id="PieChart"></canvas>
-                </div>
-                <div class="block">ccc</div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="/styles/normalize.css">
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/dashboard.css">
+    <script src="/script/jquery-3.7.1.min.js"></script>
+    <script src="/script/chart.umd.js"></script>
+    <title>BlackBeaver CRM</title>
+</head>
+
+<body>
+    <header>
+        <img src="images/logo.png" alt="BlackBeaver Logo">
+        <h1>BlackBeaver CRM</h1>
+        <nav>
+            <ul class="nav-left">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+            <ul class="nav-right">
+                <li><a href="register.html" class="access">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="block">
+                <h4>Total Target</h4>
+                <h1 style="text-align: center;">$500,000</h1>
             </div>
-            
+            <div class="block">
+                <h4>Forecasted by month</h4>
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="block peiChart">
+                <h4>Pie Chart</h4>
+                <canvas id="PieChart"></canvas>
+            </div>
+            <div class="block">
+                <h4>Sales Amount</h4>
+                <canvas id="MixChart"></canvas>
+            </div>
+        </div>
 
-        </main>
-        <footer>
-            <p>&copy; 2024 BlackBeaver CRM. All rights reserved.</p>
-        </footer>
+
+    </main>
+    <footer>
+        <p>&copy; 2024 BlackBeaver CRM. All rights reserved.</p>
+    </footer>
 
 
-        <script>
-            const ctx = document.getElementById('myChart');
-            const pie = document.getElementById('PieChart');
-            
+    <script>
+        const ctx = document.getElementById('myChart');
+        const pie = document.getElementById('PieChart');
+        const mtx = document.getElementById('MixChart') ;
 
 
-            const MONTHS = [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                'July',
-                'August',
-                'September',
-                'October',
-                'November',
-                'December'
-            ];
 
-            const labels = [
-                'July',
-                'August',
-                'September',
-                'October',
-                'November',
-                'December'];
+        const MONTHS = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December'
+        ];
 
-            const datas= [65, 59, 80, 81, 56, 55, 40];
+        const labels = [
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December'];
 
-            const data = {
-                labels: labels,
-                datasets: [{
-                    label: 'Amount',
-                    data: datas,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 205, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(201, 203, 207, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(255, 159, 64)',
-                        'rgb(255, 205, 86)',
-                        'rgb(75, 192, 192)',
-                        'rgb(54, 162, 235)',
-                        'rgb(153, 102, 255)',
-                        'rgb(201, 203, 207)'
-                    ],
-                    borderWidth: 1
-                }]
-            };
+        const datas = [65, 59, 80, 81, 56, 55, 40];
 
-            // bar
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Amount',
+                data: datas,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'
+                ],
+                borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                    'rgb(201, 203, 207)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        // bar
         let barChart = new Chart(ctx, {
-                type: 'bar',
-                data: data,
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        title: {
-                            display: false,
-                            text: 'Sales Amount',
-                            font:{
-                                size: 24
-                            }
-                        }
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
                     }
                 },
-            });
-
-            // pie
-            let pieChart = new Chart(pie, {
-                    type: 'pie',
-                    data: data,
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            },
-                            title: {
-                                display: false,
-                                text: 'Pie Chart'
-                            }
-                        }
+                plugins: {
+                    legend: {
+                        position: 'top',
                     },
-                });
-                
-            $(document).ready(function () {
-                pieChart.resize(360, 360);
-            });
+                    title: {
+                        display: false,
+                        text: 'Sales Amount',
+                        font: {
+                            size: 24
+                        }
+                    }
+                }
+            },
+        });
 
-        </script>
-        </body>
+        // pie
+        let pieChart = new Chart(pie, {
+            type: 'pie',
+            data: data,
+            options: {
+                responsive: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: false,
+                        text: 'Pie Chart'
+                    }
+                }
+            },
+        });
+
+        
+
+        // 設定數據
+        let mixdata = {
+            // x 軸文字
+            labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+            datasets: [
+                // 第一組資料
+                {
+                    type: 'line',
+                    // 上方分類文字
+                    label: '月銷售',
+                    // 數據
+                    data: [30, 20, 40, 32, 45, 24],
+                    // 線與邊框顏色
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    // 線的弧度(0-1)，數值愈小線愈直
+                    tension: 0.1,
+                },
+                {
+                    type: 'bar',
+                    // 上方分類文字
+                    label: '月銷售',
+                    // 數據
+                    data: [30, 20, 40, 32, 45, 24],
+                    // 線與邊框顏色
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    // 背景顏色
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                },
+            ],
+        };
+
+        // MixChart
+        let chart = new Chart(mtx, {
+            type: 'scatter',
+            data: mixdata,
+        });
+
+
+
+        $(document).ready(function () {
+            //pieChart.resize(360, 360);
+        });
+
+    </script>
+</body>
+
 </html>
