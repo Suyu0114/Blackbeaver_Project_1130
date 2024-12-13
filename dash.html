@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/x-icon" href="images/favicon.ico">
         <link rel="stylesheet" href="/styles/normalize.css" type="text/css">
+        <link rel="stylesheet" href="/styles/common.css">
         <link rel="stylesheet" href="/styles/dash.css" type="text/css">
         <script src="/script/jquery-3.7.1.min.js"></script>
         <script src="/script/chart.umd.js"></script>
@@ -14,18 +15,29 @@
         <header>
             <img src="images/logo.png" alt="BlackBeaver Logo">
             <h1>BlackBeaver CRM</h1>
+            <nav>
+                <ul class="nav-left">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dash.html">Customers</a></li>
+                    <li><a href="dashboards.html">Sales</a></li>
+                    <!-- <li><a href="#">Support</a></li> -->
+                </ul>
+                <ul class="nav-right">
+                    <li><a href="index.html" class="access">Logout</a></li>
+                </ul>
+            </nav>
         </header>
-        <nav>
+        <!-- <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="dash.html">Customers</a></li>
                 <li><a href="dashboards.html">Sales</a></li>
-                <!-- <li><a href="#">Reports</a></li>
+                <li><a href="#">Reports</a></li>
                 <li><a href="#">Tasks</a></li>
-                <li><a href="#">Settings</a></li> -->
+                <li><a href="#">Settings</a></li>
                 <li><a href="#">Log Out</a></li>
             </ul>
-        </nav>
+        </nav> -->
         <main>
             <section class="overview">
                 <h2>Overview</h2>
@@ -124,7 +136,7 @@
                 datasets: [
                     {
                         label: 'Customer',
-                        data: [300, 200, 400, 320, 450, 240],
+                        data: [308, 200, 402, 320, 248, 462],
                         borderWidth: 1,
                         backgroundColor: '#2F4550',
                     },
@@ -136,7 +148,7 @@
                 datasets: [
                     {
                         label: 'Active',
-                        data: [80, 100, 50, 120, 65, 135],
+                        data: [83, 100, 50, 120, 65, 138],
                         fill: true,
                         borderColor:'#2F4550',
                         // (0-1)
