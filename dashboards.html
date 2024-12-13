@@ -21,7 +21,7 @@
             <ul class="nav-left">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="dash.html">Customers</a></li>
-                <li><a href="dashboards.html">Salse</a></li>
+                <li><a href="dashboards.html">Sales</a></li>
                 <li><a href="#">Support</a></li>
             </ul>
             <ul class="nav-right">
@@ -30,21 +30,39 @@
         </nav>
     </header>
     <main>
+        <div class="filter-section">
+            <label for="sales-name">Sales Name:</label>
+            <select id="sales-name">
+                <option value="all">All Sales</option>
+                <option value="Nana">Nana</option>
+                <option value="Suyu">Suyu</option>
+                <option value="Daniel">Daniel</option>
+            </select>
+    
+            <label for="start-month">Start Month:</label>
+            <input type="month" id="start-month" value="2024-01">
+    
+            <label for="end-month">End Month:</label>
+            <input type="month" id="end-month" value="2024-12">
+    
+            <button id="filter-button">Search</button>
+        </div>
         <div class="container">
             <div class="block">
                 <h4>Total Target</h4>
-                <h1 style="text-align: center;">$500,000</h1>
+                <h1 style="text-align: center;">$500,000
+                    <br>($500K)</h1>
             </div>
             <div class="block">
-                <h4>Forecasted by month</h4>
+                <h4>Forecasted by month(K)</h4>
                 <canvas id="myChart"></canvas>
             </div>
             <div class="block peiChart">
-                <h4>Pie Chart</h4>
+                <h4 id="totalAmount">Total Amount by Sales($344.34K)</h4>
                 <canvas id="PieChart"></canvas>
             </div>
             <div class="block">
-                <h4>Sales Amount</h4>
+                <h4>Sales Amount by month(K)</h4>
                 <canvas id="MixChart"></canvas>
             </div>
         </div>
@@ -90,29 +108,27 @@
 
         const data = {
             labels: labels,
-            datasets: [{
-                label: 'Amount',
-                data: datas,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 205, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(201, 203, 207, 0.2)'
-                ],
-                borderColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(255, 159, 64)',
-                    'rgb(255, 205, 86)',
-                    'rgb(75, 192, 192)',
-                    'rgb(54, 162, 235)',
-                    'rgb(153, 102, 255)',
-                    'rgb(201, 203, 207)'
-                ],
-                borderWidth: 1
-            }]
+            datasets: [
+                {
+                    label: 'Nana',
+                    data: [10, 9, 13, 15, 17, 19],
+                    borderWidth: 1,
+                    backgroundColor: '#2F4550',
+                },
+                {
+                    label: 'Suyu',
+                    data: [7, 5, 9, 10, 14, 18],
+                    borderWidth: 1,
+                    backgroundColor: '#B8DBD9',
+                },
+                {
+                    label: 'Daniel',
+                    data: [11, 10, 12, 13, 16, 20],
+                    borderWidth: 1,
+                    backgroundColor: '#586F7C',
+                },
+
+            ]
         };
 
         // bar
@@ -139,11 +155,26 @@
                 }
             },
         });
+        
 
         // pie
+        const pLabels =['Nana', 'Suyu', 'Daniel'];
+        const pData = {
+            labels: pLabels,
+            datasets: [
+                {
+                    label: 'sales',
+                    data: [125.33, 95.13, 123.88],
+                    backgroundColor:['#2F4550','#B8DBD9', '#586F7C'],
+                    
+
+                }
+            ],
+        };
+
         let pieChart = new Chart(pie, {
             type: 'pie',
-            data: data,
+            data: pData,
             options: {
                 responsive: false,
                 plugins: {
@@ -158,38 +189,38 @@
             },
         });
 
-        
-
-        // 設定數據
-        let mixdata = {
-            // x 軸文字
-            labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
-            datasets: [
-                // 第一組資料
-                {
-                    type: 'line',
-                    // 上方分類文字
-                    label: '月銷售',
-                    // 數據
-                    data: [30, 20, 40, 32, 45, 24],
-                    // 線與邊框顏色
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    // 線的弧度(0-1)，數值愈小線愈直
-                    tension: 0.1,
-                },
-                {
-                    type: 'bar',
-                    // 上方分類文字
-                    label: '月銷售',
-                    // 數據
-                    data: [30, 20, 40, 32, 45, 24],
-                    // 線與邊框顏色
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    // 背景顏色
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                },
-            ],
-        };
+  
+            // set data
+            let mixdata = {
+                // x 
+                labels: labels,
+                datasets: [
+                    {
+                        backgroundColor: "#2F4550",
+                        borderWidth: 1,
+                        data: [15.10, 13.59, 19.63, 22.65, 25.67, 28.69],
+                        label: "Nana", type: "bar"
+                    }, {
+                        backgroundColor: "#B8DBD9",
+                        borderWidth: 1,
+                        data: [10.57, 7.55, 13.59, 15.10, 21.14, 27.18],
+                        label: "Suyu",
+                        type: "bar"
+                    }, {
+                        backgroundColor: "#586F7C",
+                        borderWidth: 1,
+                        data: [16.61, 15.10, 18.13, 19.63, 24.16, 30.25],
+                        label: "Daniel",
+                        type: "bar"
+                    }, {
+                        borderColor: "rgba(75, 192, 192, 1)",
+                        data: [74, 57, 85, 96, 112, 123],
+                        label: "Total Amount",
+                        tension: 0.1,
+                        type: "line",
+                    }
+                ],
+            };
 
         // MixChart
         let chart = new Chart(mtx, {
@@ -197,11 +228,175 @@
             data: mixdata,
         });
 
-
-
+        // document ready
         $(document).ready(function () {
-            //pieChart.resize(360, 360);
+            $('#start-month').val('2024-07');
+            $('#end-month').val('2024-12');
+
+            $('#filter-button').on('click', function () {
+                const salesName = $('#sales-name').val();
+                const startMonth = $('#start-month').val();
+                const endMonth = $('#end-month').val();
+
+
+                let filteredData = getFilteredData(salesName, startMonth, endMonth, 'forecast');
+
+                barChart.data.labels = filteredData.labels;
+                barChart.data.datasets = filteredData.datasets;
+                barChart.update();
+
+
+                filteredData = getFilteredData(salesName, startMonth, endMonth, 'amount');
+                // Update Pie Chart
+                const pieData = getPieData(salesName, filteredData.labels, filteredData.datasets);
+                pieChart.data.labels = pieData.labels;
+                pieChart.data.datasets = pieData.datasets;
+                pieChart.update();
+
+                // Update Mix Chart
+                const mixData = getMixData(salesName, filteredData.labels, filteredData.datasets);
+                chart.data.labels = mixData.labels;
+                chart.data.datasets = mixData.datasets;
+                chart.update();
+
+            });
+
+            function getDate(type) {
+                let allData = {}
+
+                if (type == 'amount') {
+                    allData = {
+                        Nana: [24.16, 21.14, 33.22, 25.67, 40.67, 18.12, 15.10, 13.59, 19.63, 22.65, 25.67, 28.69],
+                        Suyu: [22.65, 15.10, 6.04, 24.16, 19.63, 30.25, 10.57, 7.55, 13.59, 15.10, 21.14, 27.18],
+                        Daniel: [22.65, 15.10, 16.61, 13.59, 34.73, 15.10, 16.61, 15.10, 18.13, 19.63, 24.16, 30.25]
+                    };
+                } else {
+                    allData = {
+                        Nana: [16, 14, 22, 17, 27, 12, 10, 9, 13, 15, 17, 19],
+                        Suyu: [15, 10, 4, 16, 13, 20, 7, 5, 9, 10, 14, 18],
+                        Daniel: [15, 10, 11, 9, 23, 10, 11, 10, 12, 13, 16, 20]
+                    };
+                }
+
+                return allData;
+            }
+
+
+            function getFilteredData(salesName, startMonth, endMonth, dataType) {
+
+                let allData = getDate(dataType);
+
+                const allLabels = [
+                    'January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December'
+                ];
+
+                // month
+                const startDate = startMonth; // startMonth
+                const startIndex = startDate.slice(-2);
+                const endDate = endMonth; // startMonth
+                const endIndex = endDate.slice(-2);
+
+                //startMonth endMonth
+                const filteredLabels = allLabels.slice(startIndex - 1, endIndex);
+
+                if (!allData.hasOwnProperty(salesName) && salesName !== 'all') {
+                    console.error('Invalid business name:', salesName);
+                    return { labels: [], datasets: [] };
+                }
+
+                // data by sales
+                const datasets = [];
+                if (salesName === 'all') {
+                    for (const [key, values] of Object.entries(allData)) {
+                        datasets.push({
+                            label: key,
+                            data: values.slice(startIndex - 1, endIndex),
+                            borderWidth: 1,
+                            backgroundColor: getColorForBusiness(key),
+                        });
+                    }
+                } else {
+                    datasets.push({
+                        label: salesName,
+                        data: allData[salesName].slice(startIndex - 1, endIndex),
+                        borderWidth: 1,
+                        backgroundColor: getColorForBusiness(salesName),
+                    });
+                }
+
+                return { labels: filteredLabels, datasets };
+            }
+
+            // PieChart 
+            function getPieData(salesName, filteredLabels, filteredDatasets) {
+                const totalSales = { Nana: 0, Suyu: 0, Daniel: 0 };
+                filteredDatasets.forEach(dataset => {
+                    dataset.data.forEach((value, index) => {
+                        totalSales[dataset.label] += value;
+                    });
+                });
+
+                const totalAmount = totalSales.Nana + totalSales.Suyu + totalSales.Daniel;
+                $('#totalAmount').text(`Total Amount by Sales ($${totalAmount.toFixed(2)}K)`);
+
+                return {
+                    labels: ['Nana', 'Suyu', 'Daniel'],
+                    datasets: [{
+                        label: 'Total Sales',
+                        data: [totalSales.Nana, totalSales.Suyu, totalSales.Daniel],
+                        backgroundColor: ['#2F4550', '#B8DBD9', '#586F7C'],
+                    }],
+                };
+            }
+
+            // mixData
+            function getMixData(salesName, filteredLabels, filteredDatasets) {
+                
+                const totalSalesData = filteredLabels.map(() => 0); 
+
+                
+                filteredDatasets.forEach(dataset => {
+                    dataset.data.forEach((value, index) => {
+                        totalSalesData[index] += value; // totle
+                    });
+                });
+
+                filteredDatasets.forEach(dataset => {
+                    dataset.type = 'bar'; // set type bat 
+                });
+
+                filteredDatasets.push(
+                    {
+                        type: 'line',
+                        label: 'Total Amount',
+                        data: totalSalesData, 
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        tension: 0.1,
+                    }
+                );
+
+
+                // MixChart 
+                const mixData = {
+                    labels: filteredLabels,
+                    datasets: filteredDatasets,
+                };
+
+                return mixData;
+            }
+
+            // color
+            function getColorForBusiness(salesName) {
+                const colors = {
+                    Nana: '#2F4550',
+                    Suyu: '#B8DBD9',
+                    Daniel: '#586F7C',
+                };
+                return colors[salesName] || '#000';
+            }
         });
+    
 
     </script>
 </body>
