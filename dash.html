@@ -6,6 +6,8 @@
         <link rel="icon" type="image/x-icon" href="images/favicon.ico">
         <link rel="stylesheet" href="/styles/normalize.css" type="text/css">
         <link rel="stylesheet" href="/styles/dash.css" type="text/css">
+        <script src="/script/jquery-3.7.1.min.js"></script>
+        <script src="/script/chart.umd.js"></script>
         <title>Dashboard</title>
     </head>
     <body>
@@ -49,11 +51,11 @@
                 <div class="charts">
                     <div class="chart">
                         <h3>Customer Growth</h3>
-                        <div class="chart-placeholder">[Chart]</div>
+                        <canvas id="customerChart" class=""></canvas>
                     </div>
                     <div class="chart">
                         <h3>Activity Overview</h3>
-                        <div class="chart-placeholder">[Chart]</div>
+                        <canvas id="activityChart" class=""></canvas>
                     </div>
                 </div>
 
@@ -113,5 +115,57 @@
         <footer>
             <p>&copy; 2024 BlackBeaver CRM. All rights reserved.</p>
         </footer>
+        <script>
+            const ctx = document.getElementById('customerChart');
+            const atx = document.getElementById('activityChart');
+
+            let cData = {
+                labels: ['July', 'August', 'September', 'October', 'November', 'December'],
+                datasets: [
+                    {
+                        label: 'Customer',
+                        data: [300, 200, 400, 320, 450, 240],
+                        borderWidth: 1,
+                        backgroundColor: '#2F4550',
+                    },
+                ],
+            };
+
+            let aData = {
+                labels: ['July', 'August', 'September', 'October', 'November', 'December'],
+                datasets: [
+                    {
+                        label: 'Active',
+                        data: [80, 100, 50, 120, 65, 135],
+                        fill: true,
+                        borderColor:'#2F4550',
+                        // (0-1)
+                        tension: 0.1,
+                    },
+                ],
+            };
+
+            var options = {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            };
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: cData,
+                options: options,
+            });
+
+
+            new Chart(atx, {
+                type: 'line',
+                data: aData,
+                options: options,
+            });
+
+        </script>
     </body>
 </html>
