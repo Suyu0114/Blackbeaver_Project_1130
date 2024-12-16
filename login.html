@@ -16,9 +16,8 @@
             <nav>
                 <ul class="nav-left">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="dash.html">Customers</a></li>
-                    <li><a href="dashboards.html">Sales</a></li>
-                    <li><a href="#">Support</a></li>
+                    <li><a href="customers.html">Customers</a></li>
+                    <li><a href="sales.html">Sales</a></li>
                 </ul>
                 <ul class="nav-right">
                     <li><a href="#" class="access">Log out</a></li>
@@ -26,9 +25,9 @@
             </nav>
         </header>
         <main class="main-page">
-            <h1>Login</h1>
             <section class="login-form-section">
                 <form action="your-login-url">
+                    <h2>Login</h2>
                     <div class="form-group">
                         <label for="username">Username/Email</label>
                         <input type="text" id="username" name="username" required>
@@ -37,7 +36,7 @@
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password" required>
                     </div>
-                    <button type="submit"><a href="dash.html">Login</a></button>
+                    <button onclick="window.location.href='customers.html';">Login</button>
                     <br>
                     <a href="register.html">Don't have an account yet?<br>Click Here</a>
                 </form>
